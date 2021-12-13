@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import ButtonComponent from './components/button/Button';
+import InputComponent from './components/input/input';
+import Tasks from './components/tasksList/Tasks';
+import TaskProvider from './context/TasksProvider';
 
-function App() {
+const Div = styled.div`
+  height: 100vh;
+  background-color: #f8f5f2;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TaskProvider>
+      <Div>
+        <InputComponent />
+        <ButtonComponent />
+        <Tasks />
+      </Div>
+    </TaskProvider>
   );
 }
 
