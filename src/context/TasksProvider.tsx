@@ -6,10 +6,10 @@ type ProviderTypes = {
 }
 
 const TaskProvider: React.FC<ProviderTypes> = ({ children }) => {
-  const [tasks, setTasks] = useState<any>([]);
-  const [task, setTask] = useState<any>('');
-  const [editMode, setEditMode] = useState<any>(false);
-  const [index, setIndex] = useState<any>();
+  const [tasks, setTasks] = useState<Array<string>>([]);
+  const [task, setTask] = useState<string>('');
+  const [editMode, setEditMode] = useState<boolean>(false);
+  const [index, setIndex] = useState<number | undefined>();
 
   return (
     <main>

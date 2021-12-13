@@ -9,44 +9,40 @@ const Div = styled.div`
   margin: 10px 0;
 `;
 
-const Tasks: React.FC= () => {
-  const taskContext: any = useContext(TaskContext);
+const Tasks: React.FC = () => {
+  const taskContext = useContext(TaskContext);
 
   const deleteTask = (index: number) => {
-    taskContext.setTasks(taskContext.tasks.filter((i:string, ind:number) => ind !== index ))
-  }
+    taskContext.setTasks(
+      taskContext.tasks.filter((i: string, ind: number) => ind !== index)
+    );
+  };
 
   const editHandle = (task: string, index: number) => {
     taskContext.setEditMode(!taskContext.editMode);
     taskContext.setTask(task);
     taskContext.setIndex(index);
-  }
+  };
 
   return (
     <Div>
       <ul>
         {taskContext.tasks.map((task: string, index: number) => (
           <li>
-            <p> { task } </p>
+            <p> {task} </p>
 
-            <button
-              type="button"
-              onClick={ () => deleteTask(index) }
-            >
+            <button type="button" onClick={() => deleteTask(index)}>
               Deletar
             </button>
 
-            <button
-              type="button"
-              onClick={ () => editHandle(task, index) }
-            >
+            <button type="button" onClick={() => editHandle(task, index)}>
               Editar
             </button>
           </li>
         ))}
       </ul>
     </Div>
-  )
+  );
 };
 
 export default Tasks;
